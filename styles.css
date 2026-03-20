@@ -1,0 +1,264 @@
+/* ==================== RESET & BASE ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(145deg, #f5f2f0 0%, #e9e4df 100%);
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  padding: 2rem 1rem;
+  color: #1e2a2e;
+}
+
+/* container principal */
+.form-container {
+  max-width: 980px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 2rem;
+  box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+/* cabeçalho decorativo */
+.form-header {
+  background: #2c3e2f;
+  background-image: linear-gradient(135deg, #2c5e2e 0%, #1d3e1f 100%);
+  padding: 2rem 2rem 1.8rem;
+  text-align: center;
+  color: white;
+}
+
+.form-header h1 {
+  font-size: 1.9rem;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  margin-bottom: 0.5rem;
+}
+
+.form-header p {
+  font-size: 1rem;
+  opacity: 0.85;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+/* formulário */
+form {
+  padding: 2rem 2rem 2rem;
+}
+
+/* cada bloco temático */
+fieldset {
+  border: none;
+  margin-bottom: 2.2rem;
+  background: #fefef9;
+  border-radius: 1.5rem;
+  padding: 1.2rem 1.5rem 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s;
+}
+
+fieldset:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+legend {
+  font-size: 1.35rem;
+  font-weight: 700;
+  background: #ffffff;
+  padding: 0 0.9rem;
+  margin-left: -0.5rem;
+  color: #2c3e2f;
+  border-left: 5px solid #e6b422;
+  letter-spacing: -0.2px;
+  display: inline-block;
+  width: auto;
+}
+
+/* grid responsivo para campos em linha */
+.row-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.field-group {
+  flex: 1 1 220px;
+  min-width: 180px;
+}
+
+.full-width {
+  flex: 1 1 100%;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  color: #2d3e40;
+}
+
+.required-star::after {
+  content: " *";
+  color: #d9534f;
+  font-weight: bold;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  border: 1.5px solid #e0dbd4;
+  border-radius: 1rem;
+  background: #fff;
+  transition: all 0.2s;
+  outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #e6b422;
+  box-shadow: 0 0 0 3px rgba(230, 180, 34, 0.2);
+}
+
+/* checkboxes e radios em grupo */
+.checkbox-group, .radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.checkbox-group label, .radio-group label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: #faf8f5;
+  padding: 0.4rem 0.9rem;
+  border-radius: 2rem;
+  transition: background 0.2s;
+}
+
+.checkbox-group label:hover, .radio-group label:hover {
+  background: #efe6db;
+}
+
+input[type="checkbox"], input[type="radio"] {
+  width: auto;
+  margin-right: 0.2rem;
+  accent-color: #2c5e2e;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+small {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.75rem;
+  color: #6c757d;
+}
+
+/* botões */
+.button-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  border: none;
+  font-weight: 600;
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  border-radius: 3rem;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.2s;
+  background: #ece3da;
+  color: #2d3e40;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: #2c5e2e;
+  color: white;
+  box-shadow: 0 2px 6px rgba(44, 94, 46, 0.3);
+}
+
+.btn-primary:hover {
+  background: #1f4521;
+  transform: scale(1.01);
+}
+
+.btn-secondary {
+  background: #e0cfbc;
+}
+
+.btn-secondary:hover {
+  background: #cfbba4;
+}
+
+/* validação visual */
+input:invalid:not(:placeholder-shown), select:invalid:not(:placeholder-shown) {
+  border-color: #e07a5f;
+}
+
+/* responsividade */
+@media (max-width: 680px) {
+  form {
+    padding: 1.2rem;
+  }
+  fieldset {
+    padding: 1rem;
+  }
+  .checkbox-group label {
+    flex-basis: calc(50% - 1rem);
+  }
+  .button-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn {
+    text-align: center;
+  }
+  legend {
+    font-size: 1.2rem;
+  }
+}
+
+/* indicadores de campo obrigatório */
+.required-note {
+  text-align: right;
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+  color: #6c584c;
+}
+
+/* caixa de consentimento LGBT */
+.consent-lgbt {
+  background: #fff5ea;
+  border-radius: 1rem;
+  padding: 0.8rem 1rem;
+  margin-top: 0.8rem;
+}
+
+.footer-note {
+  text-align: center;
+  font-size: 0.7rem;
+  margin-top: 0.5rem;
+  color: #8b7a6b;
+}

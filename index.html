@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Culturama | Pesquisa de Opinião</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="form-container">
+  <div class="form-header">
+    <h1>🎭 Culturama · Opinião Cultural</h1>
+    <p>Sua voz transforma a cena artística. Participe da pesquisa e ajude a construir experiências mais inclusivas.</p>
+  </div>
+
+  <form method="POST" action="sucesso.html">
+    <div class="required-note">
+      <span style="color:#d9534f;">*</span> Campos obrigatórios
+    </div>
+
+    <!-- 1. DADOS PESSOAIS -->
+    <fieldset>
+      <legend>📋 Dados pessoais</legend>
+      <div class="row-fields">
+        <div class="field-group">
+          <label class="required-star">Nome completo</label>
+          <input type="text" name="nome" placeholder="Ex: Ana Silva" required autocomplete="name">
+        </div>
+        <div class="field-group">
+          <label class="required-star">Idade</label>
+          <input type="number" name="idade" id="idade" min="12" max="100" step="1" placeholder="12 a 100 anos" required>
+          <small>Somente números entre 12 e 100 (pode ser preenchido automaticamente pela data de nascimento)</small>
+        </div>
+        <div class="field-group">
+          <label>Data de nascimento</label>
+          <input type="date" name="nascimento" id="nascimento">
+          <small>Opcional — se preenchida, a idade será calculada automaticamente</small>
+        </div>
+        <div class="field-group">
+          <label class="required-star">E-mail</label>
+          <input type="email" name="email" placeholder="seu@email.com" required autocomplete="email">
+          <small>exemplo@dominio.com</small>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- 2. PERFIL -->
+    <fieldset>
+      <legend>🧑‍🤝‍🧑 Perfil</legend>
+      <div class="row-fields">
+        <div class="field-group">
+          <label>Gênero</label>
+          <select name="genero">
+            <option value="" disabled selected> – Selecione – </option>
+            <option value="feminino">Feminino</option>
+            <option value="masculino">Masculino</option>
+            <option value="nao_binario">Não-binário</option>
+            <option value="outro">Outro</option>
+            <option value="prefiro_nao_dizer">Prefiro não dizer</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label>Estado civil</label>
+          <select name="estado_civil">
+            <option value="" disabled selected> – Selecione – </option>
+            <option value="solteiro">Solteiro(a)</option>
+            <option value="casado">Casado(a)</option>
+            <option value="uniao_estavel">União estável</option>
+            <option value="divorciado">Divorciado(a)</option>
+            <option value="viuvo">Viúvo(a)</option>
+          </select>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- 3. HÁBITOS CULTURAIS -->
+    <fieldset>
+      <legend>🎨 Hábitos culturais</legend>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="habitos" value="cinema"> Cinema / Filmes</label>
+        <label><input type="checkbox" name="habitos" value="teatro"> Teatro</label>
+        <label><input type="checkbox" name="habitos" value="museus"> Museus / Exposições</label>
+        <label><input type="checkbox" name="habitos" value="shows"> Shows / Festivais</label>
+        <label><input type="checkbox" name="habitos" value="leitura"> Leitura (livros, revistas)</label>
+        <label><input type="checkbox" name="habitos" value="gastronomia"> Gastronomia / Feiras</label>
+        <label><input type="checkbox" name="habitos" value="dança"> Dança / Performances</label>
+      </div>
+      <small>Marque as atividades que você pratica ou frequenta</small>
+    </fieldset>
+
+    <!-- 4. REDES SOCIAIS -->
+    <fieldset>
+      <legend>📱 Redes sociais que você utiliza</legend>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="social" value="instagram"> Instagram</label>
+        <label><input type="checkbox" name="social" value="facebook"> Facebook</label>
+        <label><input type="checkbox" name="social" value="twitter"> X (Twitter)</label>
+        <label><input type="checkbox" name="social" value="tiktok"> TikTok</label>
+        <label><input type="checkbox" name="social" value="youtube"> YouTube</label>
+        <label><input type="checkbox" name="social" value="linkedin"> LinkedIn</label>
+        <label><input type="checkbox" name="social" value="outras"> Outras</label>
+      </div>
+      <small>Selecione as plataformas que mais utiliza</small>
+    </fieldset>
+
+    <!-- 5. ESTILO MUSICAL -->
+    <fieldset>
+      <legend>🎵 Estilo musical preferido</legend>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="musica" value="rock"> Rock</label>
+        <label><input type="checkbox" name="musica" value="pop"> Pop</label>
+        <label><input type="checkbox" name="musica" value="samba"> Samba / Pagode</label>
+        <label><input type="checkbox" name="musica" value="mpb"> MPB</label>
+        <label><input type="checkbox" name="musica" value="eletronica"> Eletrônica</label>
+        <label><input type="checkbox" name="musica" value="funk"> Funk / Trap</label>
+        <label><input type="checkbox" name="musica" value="classica"> Clássica / Erudita</label>
+        <label><input type="checkbox" name="musica" value="forro"> Forró / Nordestino</label>
+        <label><input type="checkbox" name="musica" value="indie"> Indie / Alternativo</label>
+      </div>
+    </fieldset>
+
+    <!-- 6. OPINIÕES -->
+    <fieldset>
+      <legend>💬 Sua opinião sobre a Culturama</legend>
+      <textarea name="opiniao" placeholder="Conte-nos o que você pensa sobre as iniciativas culturais, eventos ou como podemos melhorar a experiência artística..."></textarea>
+      <small>Sua opinião é essencial para criarmos projetos mais relevantes</small>
+    </fieldset>
+
+    <!-- 7. CONFIRMAÇÕES E CONSENTIMENTOS -->
+    <fieldset>
+      <legend>✅ Confirmações e consentimentos</legend>
+      <div style="margin-bottom: 1.2rem;">
+        <label style="display: inline-flex; align-items: center; gap: 0.6rem; cursor: pointer;">
+          <input type="checkbox" name="confirmacao_veracidade" value="sim">
+          Confirmo que as informações fornecidas são verdadeiras e autorizo o uso para fins de pesquisa cultural.
+        </label>
+      </div>
+      <div class="consent-lgbt">
+        <label style="display: inline-flex; align-items: center; gap: 0.7rem; cursor: pointer; font-weight: 600;">
+          <input type="checkbox" name="consentimento_lgbt" required>
+          <span class="required-star" style="color:#2c3e2f;">🏳️‍🌈 Declaro meu apoio à diversidade LGBT+ e concordo em participar da pesquisa com foco em inclusão e respeito.</span>
+        </label>
+        <small>✔️ Este campo é obrigatório para garantir o compromisso com a pauta inclusiva.</small>
+      </div>
+    </fieldset>
+
+    <div class="button-bar">
+      <button type="submit" class="btn btn-primary">📨 Enviar pesquisa</button>
+      <button type="reset" class="btn btn-secondary">🗑️ Limpar formulário</button>
+    </div>
+    <p class="footer-note">
+      Após enviar, você será redirecionado para a página de confirmação.
+    </p>
+  </form>
+</div>
+
+<script>
+  // Pequeno script apenas para calcular a idade a partir da data de nascimento
+  // Sem comprometer as validações nativas do HTML5 nos demais campos.
+  (function() {
+    const dataNascInput = document.getElementById('nascimento');
+    const idadeInput = document.getElementById('idade');
+
+    if (dataNascInput && idadeInput) {
+      function calcularIdade() {
+        const dataNasc = dataNascInput.value;
+        if (!dataNasc) {
+          // Se a data for apagada, não altera a idade automaticamente
+          // O usuário pode digitar manualmente
+          return;
+        }
+
+        const hoje = new Date();
+        const nasc = new Date(dataNasc);
+        if (isNaN(nasc.getTime())) return;
+
+        let idade = hoje.getFullYear() - nasc.getFullYear();
+        const mes = hoje.getMonth() - nasc.getMonth();
+        if (mes < 0 || (mes === 0 && hoje.getDate() < nasc.getDate())) {
+          idade--;
+        }
+
+        // Atualiza o campo idade
+        idadeInput.value = idade;
+
+        // Dispara validação nativa do campo idade (min/max)
+        idadeInput.dispatchEvent(new Event('input', { bubbles: true }));
+        idadeInput.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+
+      // Evento quando a data for alterada
+      dataNascInput.addEventListener('change', calcularIdade);
+      dataNascInput.addEventListener('input', calcularIdade); // para segurança
+    }
+  })();
+</script>
+
+</body>
+</html>
