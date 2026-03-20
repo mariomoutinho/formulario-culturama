@@ -30,7 +30,7 @@
         <div class="field-group">
           <label class="required-star">Idade</label>
           <input type="number" name="idade" id="idade" min="12" max="100" step="1" placeholder="12 a 100 anos" required>
-          <small>Somente números entre 12 e 100 (pode ser preenchido automaticamente pela data de nascimento)</small>
+          <small>Somente números entre 12 e 100</small>
         </div>
         <div class="field-group">
           <label>Data de nascimento</label>
@@ -42,10 +42,15 @@
           <input type="email" name="email" placeholder="seu@email.com" required autocomplete="email">
           <small>exemplo@dominio.com</small>
         </div>
+        <div class="field-group">
+          <label>Telefone</label>
+          <input type="tel" name="telefone" id="telefone" placeholder="(99) 99999-9999" autocomplete="off">
+          <small>Opcional — formato: (DDD) 9 3265-9879</small>
+        </div>
       </div>
     </fieldset>
 
-    <!-- 2. PERFIL -->
+    <!-- 2. PERFIL (com estado e cidade) -->
     <fieldset>
       <legend>🧑‍🤝‍🧑 Perfil</legend>
       <div class="row-fields">
@@ -70,6 +75,46 @@
             <option value="divorciado">Divorciado(a)</option>
             <option value="viuvo">Viúvo(a)</option>
           </select>
+        </div>
+      </div>
+      <div class="row-fields">
+        <div class="field-group">
+          <label>Estado (UF)</label>
+          <select name="estado">
+            <option value="" disabled selected> – Selecione – </option>
+            <option value="AC">Acre (AC)</option>
+            <option value="AL">Alagoas (AL)</option>
+            <option value="AP">Amapá (AP)</option>
+            <option value="AM">Amazonas (AM)</option>
+            <option value="BA">Bahia (BA)</option>
+            <option value="CE">Ceará (CE)</option>
+            <option value="DF">Distrito Federal (DF)</option>
+            <option value="ES">Espírito Santo (ES)</option>
+            <option value="GO">Goiás (GO)</option>
+            <option value="MA">Maranhão (MA)</option>
+            <option value="MT">Mato Grosso (MT)</option>
+            <option value="MS">Mato Grosso do Sul (MS)</option>
+            <option value="MG">Minas Gerais (MG)</option>
+            <option value="PA">Pará (PA)</option>
+            <option value="PB">Paraíba (PB)</option>
+            <option value="PR">Paraná (PR)</option>
+            <option value="PE">Pernambuco (PE)</option>
+            <option value="PI">Piauí (PI)</option>
+            <option value="RJ">Rio de Janeiro (RJ)</option>
+            <option value="RN">Rio Grande do Norte (RN)</option>
+            <option value="RS">Rio Grande do Sul (RS)</option>
+            <option value="RO">Rondônia (RO)</option>
+            <option value="RR">Roraima (RR)</option>
+            <option value="SC">Santa Catarina (SC)</option>
+            <option value="SP">São Paulo (SP)</option>
+            <option value="SE">Sergipe (SE)</option>
+            <option value="TO">Tocantins (TO)</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label>Cidade</label>
+          <input type="text" name="cidade" placeholder="Digite sua cidade" autocomplete="off">
+          <small>Exemplo: São Paulo, Belo Horizonte, etc.</small>
         </div>
       </div>
     </fieldset>
@@ -156,8 +201,7 @@
 </div>
 
 <script>
-  // Pequeno script apenas para calcular a idade a partir da data de nascimento
-  // Sem comprometer as validações nativas do HTML5 nos demais campos.
+  // Cálculo automático da idade a partir da data de nascimento
   (function() {
     const dataNascInput = document.getElementById('nascimento');
     const idadeInput = document.getElementById('idade');
@@ -165,11 +209,7 @@
     if (dataNascInput && idadeInput) {
       function calcularIdade() {
         const dataNasc = dataNascInput.value;
-        if (!dataNasc) {
-          // Se a data for apagada, não altera a idade automaticamente
-          // O usuário pode digitar manualmente
-          return;
-        }
+        if (!dataNasc) return;
 
         const hoje = new Date();
         const nasc = new Date(dataNasc);
@@ -181,17 +221,51 @@
           idade--;
         }
 
-        // Atualiza o campo idade
         idadeInput.value = idade;
-
-        // Dispara validação nativa do campo idade (min/max)
         idadeInput.dispatchEvent(new Event('input', { bubbles: true }));
         idadeInput.dispatchEvent(new Event('change', { bubbles: true }));
       }
 
-      // Evento quando a data for alterada
       dataNascInput.addEventListener('change', calcularIdade);
-      dataNascInput.addEventListener('input', calcularIdade); // para segurança
+      dataNascInput.addEventListener('input', calcularIdade);
+    }
+  })();
+
+  // Formatação automática do telefone no padrão brasileiro: (XX) XXXXX-XXXX
+  (function() {
+    const telefoneInput = document.getElementById('telefone');
+    if (telefoneInput) {
+      telefoneInput.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, ''); // remove tudo que não é dígito
+        if (value.length === 0) {
+          e.target.value = '';
+          return;
+        }
+
+        // Aplica a formatação baseada no número de dígitos
+        if (value.length <= 2) {
+          // Apenas DDD
+          e.target.value = `(${value}`;
+        } else if (value.length <= 7) {
+          // DDD + primeiros dígitos do número
+          const ddd = value.slice(0, 2);
+          const parte1 = value.slice(2);
+          e.target.value = `(${ddd}) ${parte1}`;
+        } else if (value.length <= 11) {
+          // Formato completo: (XX) XXXXX-XXXX ou (XX) XXXX-XXXX (até 11 dígitos)
+          const ddd = value.slice(0, 2);
+          const parte1 = value.slice(2, value.length - 4);
+          const parte2 = value.slice(-4);
+          e.target.value = `(${ddd}) ${parte1}-${parte2}`;
+        } else {
+          // Se mais de 11 dígitos, trunca
+          const truncated = value.slice(0, 11);
+          const ddd = truncated.slice(0, 2);
+          const parte1 = truncated.slice(2, 7);
+          const parte2 = truncated.slice(7, 11);
+          e.target.value = `(${ddd}) ${parte1}-${parte2}`;
+        }
+      });
     }
   })();
 </script>
