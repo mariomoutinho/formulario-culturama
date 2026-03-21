@@ -336,3 +336,54 @@ input[type="radio"] {
     font-size: 1.2rem;
   }
 }
+/* ==================== PÁGINA DE SUCESSO ==================== */
+.success-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(145deg, #f5f2f0 0%, #e9e4df 100%);
+}
+
+.success-card {
+  background: #ffffff;
+  max-width: 550px;
+  width: 100%;
+  padding: 2.5rem;
+  border-radius: 2rem;
+  text-align: center;
+  box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.2);
+}
+
+.success-card h1 {
+  color: #ca8530;
+  margin-bottom: 0.75rem;
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.3px;
+}
+
+.success-card p {
+  color: #2d3e40;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.success-link {
+  display: inline-block;
+  background: #ca8530;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.9rem 1.8rem;
+  border-radius: 3rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(202, 133, 48, 0.3);
+}
+
+.success-link:hover {
+  background: #b87422;
+  transform: scale(1.01);
+}

@@ -88,3 +88,26 @@ function configurarCorFavorita() {
 
   atualizarCor();
 }
+document.addEventListener('DOMContentLoaded', () => {
+  configurarCalculoIdade();
+  configurarMascaraTelefone();
+  configurarCorFavorita();
+  configurarEnvioFormulario();
+});
+
+function configurarEnvioFormulario() {
+  const form = document.getElementById('formPesquisa');
+
+  if (!form) return;
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    window.location.href = 'sucesso.html';
+  });
+}
