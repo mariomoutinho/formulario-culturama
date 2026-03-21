@@ -26,10 +26,10 @@ body {
 /* ==================== HEADER ==================== */
 .form-header {
   background: #2c3e2f;
-  background-image: linear-gradient(135deg, #d4d2d2 0%, #ca8530 100%);
+  background-image: linear-gradient(135deg, #fffbfb 0%, #ca8530 100%);
   padding: 2rem 2rem 1.8rem;
   text-align: center;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .form-header h1 {
