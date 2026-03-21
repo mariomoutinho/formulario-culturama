@@ -7,7 +7,7 @@
 
 body {
   background: linear-gradient(145deg, #f5f2f0 0%, #e9e4df 100%);
-  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   padding: 2rem 1rem;
   color: #1e2a2e;
 }
@@ -26,7 +26,7 @@ body {
 /* ==================== HEADER ==================== */
 .form-header {
   background: #2c3e2f;
-  background-image: linear-gradient(135deg, #2c5e2e 0%, #1d3e1f 100%);
+  background-image: linear-gradient(135deg, #d4d2d2 0%, #ca8530 100%);
   padding: 2rem 2rem 1.8rem;
   text-align: center;
   color: white;
@@ -284,7 +284,7 @@ input[type="radio"] {
 }
 
 .btn-primary {
-  background: #2c5e2e;
+  background: #ca8530;
   color: white;
   box-shadow: 0 2px 6px rgba(44, 94, 46, 0.3);
 }
